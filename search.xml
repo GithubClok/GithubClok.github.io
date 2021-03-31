@@ -4,12 +4,18 @@
   
     
     <entry>
-      <title>QtErrorSolution</title>
+      <title>QT编译过程中的一些错误处理</title>
       <link href="posts/2031f6c8.html"/>
       <url>posts/2031f6c8.html</url>
       
         <content type="html"><![CDATA[<h1 id="QT编译过程中的一些错误处理"><a href="#QT编译过程中的一些错误处理" class="headerlink" title="QT编译过程中的一些错误处理"></a>QT编译过程中的一些错误处理</h1><h2 id="1、undefined-reference-to-vtable-for-GoToCellDialog’"><a href="#1、undefined-reference-to-vtable-for-GoToCellDialog’" class="headerlink" title="1、undefined reference to `vtable for GoToCellDialog’"></a>1、undefined reference to `vtable for GoToCellDialog’</h2><p> 造成这个错误的原因可能是编写继承自QObject类及其子类的自定义类的时候，忘记加入Q_OBJECT宏，编译或者运行报错后手动添加了Q_OBJECT再次编译引起的。</p><p>解决方案：手动删除xxx.pro.user文件，clean项目，重新编译即可。</p><h2 id="2、Object-connect-No-such-slot-xxxx"><a href="#2、Object-connect-No-such-slot-xxxx" class="headerlink" title="2、Object::connect: No such slot xxxx"></a>2、Object::connect: No such slot xxxx</h2><p>&emsp;解决方案： </p><p>  &emsp;&emsp;①查看类声明中有没有Q_OBJECT </p><p>  &emsp;&emsp;②声明的函数要加声明: </p><blockquote><p>&emsp;&emsp;private slots:<br>&emsp;&emsp;&emsp;void xxxx();</p></blockquote><p>&emsp;&emsp;③检查槽函数名拼写是否有误，以及对应的signal和slot的参数是否一致  </p><p>…未完待续，持续更新中…</p>]]></content>
       
+      
+      <categories>
+          
+          <category> Qt </category>
+          
+      </categories>
       
       
         <tags>
